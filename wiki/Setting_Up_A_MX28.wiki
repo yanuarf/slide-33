@@ -1,3 +1,5 @@
+#summary test
+
 = Introduction =
 
 This is a overview of how to program a MX-28 servo ID and/or Baud rate 
