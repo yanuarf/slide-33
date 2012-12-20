@@ -3,9 +3,9 @@
 This is a quick over view of how to connect a MXL horn to the MX-28 servo horn which comes with the Dynamixel servo.
 
 == Items needed ==
-<P>*MXL horn:* <A href="http://www.robotshop.com/lynxmotion-servo-mxl-timing-pulley-futaba.html"> rotoshop </A></P>
-<P>*MXL belt:* <A href="http://www.sdp-si.com/"> Stock Drive Products/Sterling Instruments</A></P>
-<P>*2.0mm screw with a length of 12.0mm* (Quantity of 4) </P>
+  * <P>*MXL horn:* <A href="http://www.robotshop.com/lynxmotion-servo-mxl-timing-pulley-futaba.html"> rotoshop </A></P>
+  * <P>*MXL belt:* <A href="http://www.sdp-si.com/"> Stock Drive Products/Sterling Instruments</A></P>
+  * <P>*2.0mm screw with a length of 12.0mm* (Quantity of 4) </P>
 <p>_(Note: MXL means the size of the belt teeth pitch and MXL is a stranded size)_</p>
 <img src="http://slide-33.googlecode.com/files/horn items.jpg" />
 <P>-----------------------------------------------------------------------------------</P>
