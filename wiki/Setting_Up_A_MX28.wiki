@@ -108,4 +108,4 @@ void loop(){
 
   * 6 <p>Wait about 1 minute for the program to run on the Ardunio</p>
 
-  * 7 <p>If every thing was done correctly the MX-28 servo should start to move at the same time the LED on the servo and Ardiuno pin 13 will flash</P>
+  * 7 <p>If every thing was done correctly the MX-28 servo should start to move, at the same time the LED on the servo and Ardiuno pin 13 will flash</P>
