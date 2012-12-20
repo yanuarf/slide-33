@@ -1,5 +1,3 @@
-#How to connect a MXL horn to MX-28 servo
-
 = Introduction =
 
 This is a quick over view of how to connect a MXL horn to the MX-28 servo horn which comes with the Dynamixel servo.
