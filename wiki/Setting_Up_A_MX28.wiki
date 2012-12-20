@@ -1,4 +1,4 @@
-#summary test
+#summary program a MX-28 servo ID and/or Baud rate
 
 = Introduction =
 
