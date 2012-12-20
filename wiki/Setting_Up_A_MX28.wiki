@@ -13,12 +13,12 @@ This is a overview of now to program a MX-28 servo ID and/or Baud rate
 
 = Details =
 
-  * *Set 1* <p> Download the <A href ="http://slide-33.googlecode.com/files/Dynamixel_Serial%20-%20V2.0.zip"> Dynamixel_serial library </A> which is found in the download section </P>
+  * *Task 1 :* <p> Download the <A href ="http://slide-33.googlecode.com/files/Dynamixel_Serial%20-%20V2.0.zip"> Dynamixel_serial library </A> which is found in the download section </P>
 
-  * *Set 2* <p> Connect the MX-28 "VDD" pin to the Arduino "Vin" pin</p> <p> connect the MX-28 "GND" pin to the Ardunio "Gnd" pin </p> <p>connect the MX-28 "data" pin to the Arduino "TX" pin (Also know as pin 1)</p>
+  * *Task 2 :* <p> Connect the MX-28 "VDD" pin to the Arduino "Vin" pin</p> <p> connect the MX-28 "GND" pin to the Ardunio "Gnd" pin </p> <p>connect the MX-28 "data" pin to the Arduino "TX" pin (Also know as pin 1)</p>
 <img src="http://slide-33.googlecode.com/files/prog connection.jpg" />
 
-  * *Set 3* <p> program the Ardunio with the following sketch
+  * *Task 3 :* <p> program the Ardunio with the following sketch
 
 <code> /*
 This is a setup sketch for only one MX-28 connected and it is used to set ID and Baudrate of the Dynamixal
@@ -102,10 +102,10 @@ void loop(){
 }
  </code>
 
-  * *Set 4* <p>Once the code has been programed to the Ardunio disconnect the USB cable and connect the 12 volt power supply.</P>
+  * *Task 4 :* <p>Once the code has been programed to the Ardunio disconnect the USB cable and connect the 12 volt power supply.</P>
 
-  * *Set 5* <p>Press the reset button on the Ardunio</p>
+  * *Task 5 :* <p>Press the reset button on the Ardunio</p>
 
-  * *Set 6* <p>Wait about 1 minute for the program to run on the Ardunio</p>
+  * *Task 6 :* <p>Wait about 1 minute for the program to run on the Ardunio</p>
 
-  * *Set 7* <p>If every thing was done correctly the MX-28 servo should start to move, at the same time the LED on the servo and Ardiuno pin 13 will flash</P>
+  * *Task 7 :* <p>If every thing was done correctly the MX-28 servo should start to move, at the same time the LED on the servo and Ardiuno pin 13 will flash</P>
