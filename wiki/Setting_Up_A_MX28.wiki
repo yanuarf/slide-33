@@ -22,17 +22,16 @@ This is a overview of how to program a MX-28 servo ID and/or Baud rate
 
   * *Task 3 :* <p> program the Ardunio with the following sketch
 
-<code> /*
+<code> 
+/*
 This is a setup sketch for only one MX-28 connected and it is used to set ID and Baudrate of the Dynamixal
 
 Connection of Dynamixel to Arduino 
 ==================================
-
 You do not need a half to full duplex circuit if you do not wish to receive ANY data FROM the Dynamixal servo, as we are only setting up the Dynamixal servo we will leave this circuit out and connect directly to Arduino to make things simple.
 
 MX-28 (Pin)            Arduino (Pin)
 ====================================
-
 GND (1) -------------- GND (Power GND)
 VDD (2) -------------- VIN (Power VIN)
 DATA(3) -------------- TX (Pin 1) 
@@ -41,14 +40,16 @@ With the 3 wires connected as above and the Arduino programmed with this sketch 
 (CAUTION! This power supply must not be greater then +14.8Vdc as this is the supply that powers the Dynamixal). 
 Wait about a ONE minute and if successfully the Dynamixal should start to move with its LED turning ON and OFF.
 
+Robotis e-Manual ( http://support.robotis.com )
+
 */
 
 
 #include <Dynamixel_Serial.h>       // Library needed to control Dynamixal servo
 
 #define SERVO_ID 0x01               // ID of which we will set Dynamixel too 
-#define SERVO_ControlPin 0x10       // Control pin of buffer chip, NOTE: this does not matter becasue we are not using a half to full contorl buffer.
-#define SERVO_SET_Baudrate 1000000  // Baud rate speed which the Dynamixel will be set too (1Mbps)
+#define SERVO_ControlPin 0x02       // Control pin of buffer chip, NOTE: this does not matter becasue we are not using a half to full contorl buffer.
+#define SERVO_SET_Baudrate 100000  // Baud rate speed which the Dynamixel will be set too (1Mbps)
 #define LED13 0x0D                  // Pin of Visual indication for runing "heart beat" using onboard LED
 
 
@@ -58,16 +59,20 @@ void setup(){
 
  delay(1000);                                                 // Give time for Dynamixel to start on power-up
 
- for (int i=1; i<0xFF; i++){                                  // This "for" loop will take about 20 Sec to compelet and is used to loop though all speeds that Dynamixel can be and send reset instuction 
+ for (int b=1; b<0xFF; b++){                                  // This "for" loop will take about 20 Sec to compelet and is used to loop though all speeds that Dynamixel can be and send reset instuction 
     long Baudrate_BPS = 0;
-    Baudrate_BPS  = 2000000 / (i + 1);                        // Calculate Baudrate as ber "Robotis e-manual"
-      Dynamixel.begin(Baudrate_BPS ,SERVO_ControlPin,8000);   // Set Ardiuno Serial speed and control pin 
+    Baudrate_BPS  = 2000000 / (b + 1);                        // Calculate Baudrate as ber "Robotis e-manual"
+      Dynamixel.begin(Baudrate_BPS ,SERVO_ControlPin);   // Set Ardiuno Serial speed and control pin      
         Dynamixel.reset(0xFE);                                // Broadcast to all Dynamixel IDs(0xFE is the ID for all Dynamixel to responed) and Reset Dynamixel to factory default
+        delay(5);
+         
  } 
+ digitalWrite(LED13, LOW);
  
- 
+ delay(3000);                                                 // Give time for Dynamixel to reset
+  
  // Now that the Dynamixel is reset to factory setting we will program its Baudrate and ID
- Dynamixel.begin(57600,SERVO_ControlPin,8000);                 // Set Ardiuno Serial speed to factory default speed of 57600
+ Dynamixel.begin(57600,SERVO_ControlPin);                 // Set Ardiuno Serial speed to factory default speed of 57600
  Dynamixel.setID(0xFE,SERVO_ID);                               // Broadcast to all Dynamixel IDs(0xFE) and set with new ID
  delay(10);                                                     // Time needed for Dynamixel to set it's new ID before next instruction can be sent
  Dynamixel.setStatusPaket(SERVO_ID,READ);                      // Tell Dynamixel to only return status packets when a "read" instruction is sent e.g. Dynamixel.readVoltage();
@@ -75,7 +80,7 @@ void setup(){
  delay(30);                                                    // Time needed for Dynamixel to set it's new Baudrate
 
 
-  Dynamixel.begin(SERVO_SET_Baudrate,SERVO_ControlPin,100);    // We now need to set Ardiuno to the new Baudrate speed 
+  Dynamixel.begin(SERVO_SET_Baudrate,SERVO_ControlPin);    // We now need to set Ardiuno to the new Baudrate speed 
   Dynamixel.ledState(SERVO_ID, ON);                            // Turn Dynamixel LED on
   delay(5);
   Dynamixel.setMode(SERVO_ID, SERVO,0x000,0xFFF);              // Turn mode to SERVO, must be WHEEL if using wheel mode
@@ -102,6 +107,8 @@ void loop(){
   delay(4000);
   
 }
+
+
  </code>
 
   * *Task 4 :* <p>Once the code has been programed to the Ardunio disconnect the USB cable and connect the 12 volt power supply.</P>
